@@ -96,10 +96,14 @@ predict_clusters <- function(model, newdata) {
 # prediction process will overwrite this variable
 orig_df <- muts_df
 test_data <- orig_df[1:10, ]
-predict_clusters(aic, test_data)
+probs_aic <- predict_clusters(aic, test_data)
+colnames(probs_aic) <- c("BCL2", "TET2/SGK1", "SOCS1/SGK1", "NOTCH2", "MYD88", "NEC")
+probs_aic
 
 # BIC model returns 4 columns
-predict_clusters(bic, test_data)
+probs_bic <- predict_clusters(bic, test_data)
+colnames(probs_bic) <- c("SGK1", "BCL2", "NEC", "MYD88")
+probs_bic
 
 # View predicted cluster membership for an imaginary sample.
 # This will use as an example a sample with a number of mutations associated with MYD88
@@ -113,4 +117,6 @@ new_df$CD79B <- 1
 
 # From the heatmap it can be observed that MYD88 is the 5th cluster, which is consistent
 # with the predicted 93% assignment for this imaginary sample.
-predict_clusters(aic, new_df)
+probs_aic <- predict_clusters(aic, new_df)
+colnames(probs_aic) <- c("BCL2", "TET2/SGK1", "SOCS1/SGK1", "NOTCH2", "MYD88", "NEC")
+probs_aic
