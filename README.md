@@ -1,4 +1,4 @@
-This folder contains code and data to reproduce analyses from the paper *Targeted sequencing in DLBCL, molecular subtypes, and outcomes: a Haematological Malignancy Research Network report*, published in XX XX.
+This folder contains code and data to reproduce analyses from [Lacy, Stuart E., et al. "Targeted sequencing in DLBCL, molecular subtypes, and outcomes: a Haematological Malignancy Research Network report." Blood 135.20 (2020): 1759-1771](https://doi.org/10.1182/blood.2019003535)
 
 The contents are as follows:
 
