@@ -53,15 +53,20 @@ plot(ex)
 # Extract these models
 aic <- getModel(ex, which = "AIC")
 bic <- getModel(ex, which = "BIC")
+icl <- getModel(ex, which = "ICL")
 
 # Save cluster assignments in main data frame
 muts_all$ClusterAIC <- as.factor(paste0('C', aic@cluster))
-muts_all$ClusterICL <- as.factor(paste0('C', bic@cluster))
+muts_all$ClusterBIC <- as.factor(paste0('C', bic@cluster))
+muts_all$ClusterICL <- as.factor(paste0('C', icl@cluster))
 
 # Plot heatmaps of enriched mutations
 genes <- colnames(muts_df)
 plt_aic <- heatmap_mutation_extended(muts_all, genes, 'ClusterAIC', y_order = 'group', idcol = 'PID')
 grid.arrange(plt_aic)
+
+plt_bic <- heatmap_mutation_extended(muts_all, genes, 'ClusterBIC', y_order = 'group', idcol = 'PID')
+grid.arrange(plt_bic)
 
 plt_icl <- heatmap_mutation_extended(muts_all, genes, 'ClusterICL', y_order = 'group', idcol = 'PID')
 grid.arrange(plt_icl)
